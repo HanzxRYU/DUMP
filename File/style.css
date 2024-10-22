@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
 
 body {
@@ -10,13 +9,8 @@ body {
   line-height: 20px;
 }
 
-*:focus {
-  outline: none !important;
-}
-
-/* TO DO LIST */
 .tdl-holder {
-  margin: 0px auto;
+  margin: 0 auto;
   width: 400px;
   margin-top: 200px;
 }
@@ -34,6 +28,10 @@ body {
   margin: 0;
 }
 
+.tdl-content {
+  margin-bottom: 10px; /* Spasi antara daftar dan input */
+}
+
 .tdl-holder ul,
 .tdl-holder li {
   list-style: none;
@@ -47,11 +45,35 @@ body {
   color: #b1b2c9;
 }
 
+.tdl-holder input[type="text"] {
+  background-color: #f4f4f4;
+  border: none;
+  font-family: "Roboto Mono", monospace;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #747474;
+  font-size: 12px;
+  margin: 0;
+  padding: 20px 15px;
+  width: 370px;
+}
+
+.tdl-holder li.remove {
+  display: none;
+}
+
+.timestamp {
+  font-size: 10px;
+  color: #999; /* Ubah warna sesuai kebutuhan */
+  margin-left: 10px; /* Tambahkan spasi antara teks dan timestamp */
+}
+
+*:focus {
+  outline: none !important;
+}
+
 .tdl-holder li span {
   margin-left: 30px;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   color: #808080;
   font-size: 12px;
@@ -78,9 +100,6 @@ body {
   text-align: center;
   text-decoration: none;
   width: 16px;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
@@ -129,23 +148,6 @@ body {
   text-decoration: line-through;
 }
 
-.tdl-holder input[type="text"] {
-  background-color: #f4f4f4;
-  border: none;
-  font-family: "Roboto Mono", monospace;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  color: #747474;
-  font-size: 12px;
-  margin: 0;
-  padding: 20px 15px;
-  width: 370px;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-
 .tdl-holder input[type="text"]:hover {
   color: #848484;
 }
@@ -182,7 +184,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-left: 5px; /* Add margin-left */
+  margin-left: 5px; /* Tambahkan margin kiri */
 }
 
 .behance img {
@@ -192,4 +194,17 @@ body {
   margin-right: 5px;
   margin-left: 5px;
   cursor: pointer;
+}
+
+.tdl-holder input[type="text"] {
+  background-color: #f4f4f4;
+  border: none;
+  font-family: "Roboto Mono", monospace;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #747474;
+  font-size: 12px;
+  margin: 0;
+  padding: 20px 15px;
+  width: 370px;
 }

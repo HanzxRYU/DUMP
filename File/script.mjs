@@ -1,66 +1,79 @@
 $(document).ready(function () {
-  // Load tasks from localStorage on page load
-  loadTasks();
+  loadTasks(); // Muat tugas saat halaman dimuat
 
   $(".tdl-new").keypress(function (e) {
     if (e.which === 13) {
       e.preventDefault();
-      var inputValue = $(this).val().trim();
+      const inputValue = $(this).val().trim();
       if (inputValue !== "") {
-        $(".tdl-content ul").append(
-          "<li><label><input type='checkbox'><i></i><span>" +
-            inputValue +
-            "</span><a href='#'>–</a></label></li>"
-        );
+        addTask(inputValue);
         $(this).val("");
-        saveTasks(); // Save tasks to localStorage
+        saveTasks(); // Simpan tugas ke localStorage
       }
     }
   });
 
-  $(".tdl-content").on("click", "a", function () {
-    var li = $(this).parent().parent("li");
+  $(".tdl-content").on("click", "a", function (e) {
+    e.preventDefault();
+    const li = $(this).closest("li");
     li.addClass("remove")
       .stop()
       .delay(100)
       .slideUp("fast", function () {
         li.remove();
-        saveTasks(); // Save tasks to localStorage after removing a task
+        saveTasks(); // Simpan tugas ke localStorage setelah menghapus tugas
       });
-    return false;
   });
 
-  // Event listener for checkbox change
   $(".tdl-content").on("change", "input[type='checkbox']", function () {
-    saveTasks(); // Save tasks to localStorage after checkbox change
+    saveTasks(); // Simpan tugas ke localStorage setelah perubahan checkbox
   });
 
-  // Function to save tasks to localStorage
+  function addTask(taskText) {
+    const timestamp = new Date().toLocaleString(); // Dapatkan tanggal dan waktu saat ini
+    const listItem = `
+          <li>
+              <label>
+                  <input type='checkbox'>
+                  <i></i>
+                  <span>${taskText}</span>
+                  <span class="timestamp">${timestamp}</span>
+                  <a href='#'>–</a>
+              </label>
+          </li>`;
+    $(".tdl-content ul").append(listItem);
+  }
+
   function saveTasks() {
-    var tasks = [];
+    const tasks = [];
     $(".tdl-content ul li").each(function () {
-      var task = {
-        text: $(this).find("span").text(),
+      const task = {
+        text: $(this).find("span").first().text(),
         checked: $(this).find("input[type='checkbox']").prop("checked"),
+        timestamp: $(this).find(".timestamp").text(),
       };
       tasks.push(task);
     });
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log(tasks); // Debugging: Log tugas ke konsol
   }
 
-  // Function to load tasks from localStorage
   function loadTasks() {
-    var storedTasks = localStorage.getItem("tasks");
+    const storedTasks = localStorage.getItem("tasks");
     if (storedTasks) {
-      var tasks = JSON.parse(storedTasks);
+      const tasks = JSON.parse(storedTasks);
       $.each(tasks, function (index, task) {
-        var checkedAttribute = task.checked ? "checked='checked'" : "";
-        var listItem =
-          "<li><label><input type='checkbox' " +
-          checkedAttribute +
-          "><i></i><span>" +
-          task.text +
-          "</span><a href='#'>–</a></label></li>";
+        const checkedAttribute = task.checked ? "checked='checked'" : "";
+        const listItem = `
+                  <li>
+                      <label>
+                          <input type='checkbox' ${checkedAttribute}>
+                          <i></i>
+                          <span>${task.text}</span>
+                          <span class="timestamp">${task.timestamp}</span>
+                          <a href='#'>–</a>
+                      </label>
+                  </li>`;
         $(".tdl-content ul").append(listItem);
       });
     }
