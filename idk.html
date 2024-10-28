@@ -19,10 +19,21 @@
         background-color: #f3feb8;
         transition: background-color 0.3s;
       }
+      .header {
+        background-color: #ffde4d;
+        padding: 10px;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+      }
+      .header h1 {
+        color: #ffb22c; /* Warna header */
+        font-size: 2rem;
+        margin: 0; /* Menghapus margin default */
+      }
       .content-container {
         background-color: #ffde4d;
         padding: 20px;
-        border-radius: 8px;
+        border-radius: 0 0 8px 8px; /* Menyambung dengan header */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
       .inbox-content,
@@ -88,9 +99,11 @@
     </style>
   </head>
   <body class="flex flex-col items-center justify-center min-h-screen">
+    <div class="header w-11/12 max-w-4xl">
+      <h1>To-Do List</h1>
+    </div>
     <div class="content-container w-11/12 max-w-4xl">
       <div class="text-center mb-6">
-        <h1 class="text-4xl font-bold mb-2">To-Do List</h1>
         <p class="text-xl">Silahkan buat plan anda disini!</p>
       </div>
 
