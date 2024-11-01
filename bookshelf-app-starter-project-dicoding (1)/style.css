@@ -36,10 +36,6 @@ main {
   margin: 0 auto;
 }
 
-.full-width {
-  grid-column: 1 / -1;
-}
-
 section {
   background-color: #ffffff;
   padding: 20px;
@@ -82,18 +78,6 @@ input[type="number"]:focus {
   border-color: #1e7bb8;
 }
 
-input[type="text"]:hover,
-input[type="number"]:hover {
-  border-color: #a8c8e0;
-  background-color: #e1f3f8;
-}
-
-input[type="checkbox"] {
-  transform: scale(1.2);
-  margin-right: 10px;
-  cursor: pointer;
-}
-
 button {
   padding: 10px 20px;
   background-color: #3a8ec7;
@@ -106,24 +90,6 @@ button {
 }
 
 button:hover {
-  background-color: #53d8a8;
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-#searchSubmit {
-  padding: 10px 20px;
-  background-color: #3a8ec7;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin-top: 10px;
-}
-
-#searchSubmit:hover {
   background-color: #53d8a8;
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -153,13 +119,4 @@ button:hover {
 [data-testid="bookItemYear"] {
   color: #666;
   margin-bottom: 10px;
-}
-
-.book-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.book-list li {
-  margin-bottom: 15px;
 }
