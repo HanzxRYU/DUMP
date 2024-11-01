@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addBook(title, author, year, isComplete) {
     const bookId = Date.now().toString();
-    const book = { id: bookId, title, author, year, isComplete };
+    const book = { id: bookId, title, author, year: Number(year), isComplete }; // Mengonversi year ke number
     books.push(book);
     saveBooksToStorage();
     addBookToDOM(book);
@@ -92,12 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     const title = document.getElementById("bookFormTitle").value;
     const author = document.getElementById("bookFormAuthor").value;
-    const year = document.getElementById("bookFormYear").value;
+    const year = document.getElementById("bookFormYear").value; // Masih dalam string
     const isComplete = document.getElementById("bookFormIsComplete").checked;
 
     addBook(title, author, year, isComplete);
 
-    // Reset the form after submission
     bookForm.reset();
   });
 

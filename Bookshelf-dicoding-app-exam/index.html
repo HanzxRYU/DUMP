@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf App</title>
-    <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
   </head>
   <body>
     <header>
@@ -44,18 +44,12 @@
             />
           </div>
           <div>
-            <label
-              for="bookFormIsComplete"
-              style="display: flex; align-items: center"
-            >
-              <input
-                id="bookFormIsComplete"
-                type="checkbox"
-                data-testid="bookFormIsCompleteCheckbox"
-                style="margin-right: 10px"
-              />
-              Selesai dibaca
-            </label>
+            <label for="bookFormIsComplete">Selesai dibaca</label>
+            <input
+              id="bookFormIsComplete"
+              type="checkbox"
+              data-testid="bookFormIsCompleteCheckbox"
+            />
           </div>
           <button
             id="bookFormSubmit"
